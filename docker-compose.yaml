@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_ToDoList:
+    restart: always
+    image: postgres:15.3-alpine
+    container_name: database_ToDoList
+    environment:
+      POSTGRES_DB: ToDoList
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
